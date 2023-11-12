@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,14 +12,19 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::post('/login_user', [LoginController::class, 'loginUser']);
+
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
 
 Route::get('/', function () {
-    return view('dashboard');
+    return redirect('login');
 });
 
-Route::get('/sign-in', function () {
-    return view('auth.sign-in');
-});
+// Route::get('/sign-in', function () {
+//     return view('auth.sign-in');
+// });
 
 Route::get('/connectUser', function () {
     return view('pages.connectedUserTable');
@@ -28,3 +33,7 @@ Route::get('/connectUser', function () {
 Route::get('/blockedUser', function () {
     return view('pages.blockedUserTable');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

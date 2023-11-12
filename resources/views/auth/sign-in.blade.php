@@ -32,22 +32,28 @@
 								Sign in to your account to continue
 							</p>
 						</div>
-
+						
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-3">
-									<form>
+									<form action="{{url('login_user')}}" method="POST">
+										@csrf
 										<div class="mb-3">
 											<label class="form-label">Username</label>
-											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your username" autocomplete="off"/>
+											<input required class="form-control form-control-lg" type="text" name="username" placeholder="Enter your username" autocomplete="off"/>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
-											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
+											<input required class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
 										</div>
 										<div class="d-grid gap-2 mt-3">
-											<a href="{{ url ('/')}}" class="btn btn-lg btn-primary">Sign in</a>
+											<button type="submit" class="btn btn-lg btn-primary">Sign in</button>
 										</div>
+										@if($message=Session::get('error'))
+									      <div class="alert alert-danger" role="alert" align="center" style="color: red;">
+									          <div class="alert-text">{{ucwords($message)}}</div>
+									      </div>
+									    @endif
 									</form>
 								</div>
 							</div>
