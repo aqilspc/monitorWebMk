@@ -36,7 +36,7 @@
         <h1 class="h3 d-inline align-middle">Blocked Users</h1>
     </div>
 
-    <div class="row">
+        <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="p-4">
@@ -44,191 +44,22 @@
                         <thead>
                             <tr>
                                 <th>IP Address</th>
-                                <th>Mac Address</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($data as $key => $item)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
+                                <td>{{$item['src-address']}}</td>
+                                <td>
+                                    <a href="{{url('un_block_user')}}?numbers={{$key}}" 
+                                       onclick="return confirm('yakin untuk unblock user?')" 
+                                       class="btn btn-success">
+                                        UnBlock
+                                    </a>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Airi Satou</td>
-                                <td>Accountant</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Brielle Williamson</td>
-                                <td>Integration Specialist</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Herrod Chandler</td>
-                                <td>Sales Assistant</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Rhona Davidson</td>
-                                <td>Integration Specialist</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Colleen Hurst</td>
-                                <td>Javascript Developer</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Sonya Frost</td>
-                                <td>Software Engineer</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Jena Gaines</td>
-                                <td>Office Manager</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Quinn Flynn</td>
-                                <td>Support Lead</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Charde Marshall</td>
-                                <td>Regional Director</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Haley Kennedy</td>
-                                <td>Senior Marketing Designer</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Tatyana Fitzpatrick</td>
-                                <td>Regional Director</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Michael Silva</td>
-                                <td>Marketing Designer</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Paul Byrd</td>
-                                <td>Chief Financial Officer (CFO)</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Gloria Little</td>
-                                <td>Systems Administrator</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Bradley Greer</td>
-                                <td>Software Engineer</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Dai Rios</td>
-                                <td>Personnel Lead</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Jenette Caldwell</td>
-                                <td>Development Lead</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Yuri Berry</td>
-                                <td>Chief Marketing Officer (CMO)</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Caesar Vance</td>
-                                <td>Pre-Sales Support</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Doris Wilder</td>
-                                <td>Sales Assistant</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Angelica Ramos</td>
-                                <td>Chief Executive Officer (CEO)</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Gavin Joyce</td>
-                                <td>Developer</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Jennifer Chang</td>
-                                <td>Regional Director</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Brenden Wagner</td>
-                                <td>Software Engineer</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Fiona Green</td>
-                                <td>Chief Operating Officer (COO)</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Shou Itou</td>
-                                <td>Regional Marketing</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Michelle House</td>
-                                <td>Integration Specialist</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Suki Burks</td>
-                                <td>Developer</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Prescott Bartlett</td>
-                                <td>Technical Author</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Gavin Cortez</td>
-                                <td>Team Leader</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Martena Mccray</td>
-                                <td>Post-Sales support</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
-                            <tr>
-                                <td>Unity Butler</td>
-                                <td>Marketing Designer</td>
-                                <td><button type="button" class="btn btn-info">Unblock</button></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

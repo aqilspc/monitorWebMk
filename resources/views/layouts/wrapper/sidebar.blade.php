@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="{{ url ('/') }}">
-            <span class="align-middle">Mikrotik</span>
+            <span class="align-middle">Mikrotik Monitor</span>
         </a>
 
         <ul class="sidebar-nav">

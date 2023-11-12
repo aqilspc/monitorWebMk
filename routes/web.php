@@ -26,14 +26,22 @@ Route::get('/', function () {
 //     return view('auth.sign-in');
 // });
 
-Route::get('/connectUser', function () {
-    return view('pages.connectedUserTable');
-});
+// Route::get('/connectUser', function () {
+//     return view('pages.connectedUserTable');
+// });
 
-Route::get('/blockedUser', function () {
-    return view('pages.blockedUserTable');
-});
+// Route::get('/blockedUser', function () {
+//     return view('pages.blockedUserTable');
+// });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/connectUser', [App\Http\Controllers\HomeController::class, 'connectUser']);
+
+Route::get('/block_user', [App\Http\Controllers\HomeController::class, 'blockUser']);
+
+Route::get('/un_block_user', [App\Http\Controllers\HomeController::class, 'unBlockUser']);
+
+Route::get('/blockedUser', [App\Http\Controllers\HomeController::class, 'blockedUser']);

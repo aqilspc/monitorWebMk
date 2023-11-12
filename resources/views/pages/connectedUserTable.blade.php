@@ -20,9 +20,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-responsive-bs5/2.5.0/responsive.bootstrap5.min.js" integrity="sha512-ttUzgYsudyu2EEX88COgcLtS+AKeZXAzI45jN2iJUIpbtkiH8lgaWtlmLU6BjECAZAyhhn0UdedzR++CZGZiZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $('#example').DataTable( {
-    responsive: true,
-    fixedColumns: true,
-    fixedHeader: true,
+        responsive: true,
+        fixedColumns: true,
+        fixedHeader: true,
+    });
+
+    $('#example2').DataTable( {
+        responsive: true,
+        fixedColumns: true,
+        fixedHeader: true,
     });
     $('#example tbody').on('click', 'td button', function (){
     //todo
@@ -35,7 +41,11 @@
     <div class="mb-3">
         <h1 class="h3 d-inline align-middle">Connected Users</h1>
     </div>
-
+    @if($message=Session::get('success'))
+        <div class="alert alert-danger" role="alert" align="center" style="color: green;">
+            <div class="alert-text">{{ucwords($message)}}</div>
+        </div>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -45,190 +55,54 @@
                             <tr>
                                 <th>IP Address</th>
                                 <th>Mac Address</th>
+                                <th>Hostname</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($data as $key => $item)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
+                                <td>{{$item['active-address']}}</td>
+                                <td>{{$item['active-mac-address']}}</td>
+                                <td>{{$item['host-name']}}</td>
+                                <td>
+                                    <a href="{{url('block_user')}}?ip={{$item['active-address']}}" 
+                                       onclick="return confirm('yakin untuk block user?')" 
+                                       class="btn btn-danger">
+                                        Block
+                                    </a>
+                                </td>
                             </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="mb-3">
+        <h1 class="h3 d-inline align-middle">Bandwith Per Users Ip</h1>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="p-4">
+                    <table id="example2" class="table table-hover table-responsive nowrap w-100">
+                        <thead>
                             <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
+                                <th>IP Address</th>
+                                <th>Rate</th>
+                                <th>Byte</th>
                             </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($connection as $key => $item)
                             <tr>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
+                                <td>{{$item['target']}}</td>
+                                <td>{{floatval($item['rate']) / 1000}}Kb</td>
+                                <td>{{floatval($item['bytes']) / 100}}Kb</td>
                             </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Airi Satou</td>
-                                <td>Accountant</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Brielle Williamson</td>
-                                <td>Integration Specialist</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Herrod Chandler</td>
-                                <td>Sales Assistant</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Rhona Davidson</td>
-                                <td>Integration Specialist</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Colleen Hurst</td>
-                                <td>Javascript Developer</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Sonya Frost</td>
-                                <td>Software Engineer</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Jena Gaines</td>
-                                <td>Office Manager</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Quinn Flynn</td>
-                                <td>Support Lead</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Charde Marshall</td>
-                                <td>Regional Director</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Haley Kennedy</td>
-                                <td>Senior Marketing Designer</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Tatyana Fitzpatrick</td>
-                                <td>Regional Director</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Michael Silva</td>
-                                <td>Marketing Designer</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Paul Byrd</td>
-                                <td>Chief Financial Officer (CFO)</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Gloria Little</td>
-                                <td>Systems Administrator</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Bradley Greer</td>
-                                <td>Software Engineer</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Dai Rios</td>
-                                <td>Personnel Lead</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Jenette Caldwell</td>
-                                <td>Development Lead</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Yuri Berry</td>
-                                <td>Chief Marketing Officer (CMO)</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Caesar Vance</td>
-                                <td>Pre-Sales Support</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Doris Wilder</td>
-                                <td>Sales Assistant</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Angelica Ramos</td>
-                                <td>Chief Executive Officer (CEO)</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Gavin Joyce</td>
-                                <td>Developer</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Jennifer Chang</td>
-                                <td>Regional Director</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Brenden Wagner</td>
-                                <td>Software Engineer</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Fiona Green</td>
-                                <td>Chief Operating Officer (COO)</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Shou Itou</td>
-                                <td>Regional Marketing</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Michelle House</td>
-                                <td>Integration Specialist</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Suki Burks</td>
-                                <td>Developer</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Prescott Bartlett</td>
-                                <td>Technical Author</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Gavin Cortez</td>
-                                <td>Team Leader</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Martena Mccray</td>
-                                <td>Post-Sales support</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
-                            <tr>
-                                <td>Unity Butler</td>
-                                <td>Marketing Designer</td>
-                                <td><button type="button" class="btn btn-danger">Block</button></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
